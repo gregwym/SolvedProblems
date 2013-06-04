@@ -1,2 +1,1 @@
-Archieve for various programming problem that I solved. 
-
+Archive for various programming problem that I solved. 
