@@ -11,27 +11,21 @@
 using namespace std;
 
 string *compress(string *str) {
-  string *compressed = new string();
+  stringstream compressedStream;
   char last = '\0';
   int count = 0;
-  for (int i = 0; i < str->length(); ++i)
+  for (string::iterator i = str->begin(); i != str->end(); i++)
   {
-    if (last != str->at(i) && count > 0)
+    if (last != *i && count > 0)
     {
-      compressed->push_back(last);
-      stringstream countStr;
-      countStr << count;
-      compressed->append(countStr.str());
+      compressedStream << last << count;
       count = 0;
     }
-    last = str->at(i);
+    last = *i;
     count++;
   }
-
-  compressed->push_back(last);
-  stringstream countStr;
-  countStr << count;
-  compressed->append(countStr.str());
+  compressedStream << last << count;
+  string *compressed = new string(compressedStream.str());
 
   if (compressed->length() < str->length())
   {
