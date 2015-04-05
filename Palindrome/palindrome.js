@@ -23,7 +23,7 @@ var isAlphanumeric = function(char) {
 var isPalindrome = function(str) {
     var i = 0;
     var j = str.length - 1;
-    var left, rigth;
+    var left, right;
     while(i < j) {
         left = str.charAt(i);
         right = str.charAt(j);
